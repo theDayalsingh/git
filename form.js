@@ -74,13 +74,76 @@ for(var i=0 ;i<li.length;i++){
 
 // queruy selector al;l
 
-var title=document.querySelectorAll('.title')
-console.log(title)
-title[0].textContent="HHH"
+// var title=document.querySelectorAll('.title')
+// console.log(title)
+// title[0].textContent="HHH"
 
-var odd= document.querySelectorAll("li:nth-child(odd)")
-var even= document.querySelectorAll("li:nth-child(even)")
-for(var i=0;i<odd.length;i++){
-    odd[i].style.background="grey"
-    even[i].style.background="green"
-}
+// var odd= document.querySelectorAll("li:nth-child(odd)")
+// var even= document.querySelectorAll("li:nth-child(even)")
+// for(var i=0;i<odd.length;i++){
+//     odd[i].style.background="grey"
+//     even[i].style.background="green"
+// }
+
+// parent node
+var itemlist = document.querySelector("#items")
+// console.log(itemlist.parentNode)
+// itemlist.parentNode.style.backgroundColor="grey"
+// console.log(itemlist.parentNode.parentNode.parentNode)
+
+// parent element
+// console.log(itemlist.parentElement)
+// itemlist.parentElement.style.backgroundColor="grey"
+// console.log(itemlist.parentElement.parentElement.parentElement)
+
+//childnode
+// console.log(itemlist.childNodes) // useless
+// console.log(itemlist.children)
+// console.log(itemlist.children[1])
+// itemlist.children[1].style.background="grey"
+
+//Firstchild useless
+// console.log(itemlist.firstChild)
+
+//firstelemt
+// console.log(itemlist.firstElementlast
+
+//lastchild useless
+// console.log(itemlist.lastChild)
+
+//lastelemt
+// console.log(itemlist.lastElementChild)
+// itemlist.lastElementChild.textContent="HHH"
+
+//nextsibling useless
+// console.log(itemlist.nextSibling)
+
+//nextelemntsibling
+// console.log(itemlist.nextElementSibling)
+// itemlist.nextElementSibling.textContent="HHH"
+
+// previoussibling useless
+// console.log(itemlist.previousSibling)
+
+// previouselemntsibling
+// console.log(itemlist.previousElementSibling)
+// itemlist.previousElementSibling.textContent="HHH"
+
+// createelement
+//create div
+var newDiv= document.createElement('div')
+console.log(newDiv)
+//add classname
+newDiv.className='hello'
+//add id
+newDiv.id='hello1'
+//add attr
+newDiv.setAttribute("title",'hellodiv')
+//create text node
+var newDivText =document.createTextNode("Hello world")
+newDiv.appendChild(newDivText)
+/// put insode constainer
+
+var constainer = document.querySelector('header .container')
+var h1 =document.querySelector('header h1')
+constainer.insertBefore(newDiv,h1)
