@@ -52,3 +52,35 @@ li[2].style.backgroundColor = "green"
 for(var i=0 ;i<li.length;i++){
     li[i].style.fontWeight='bold'
 }
+
+// queryselector
+
+// var header=document.querySelector('#main-header')
+// header.style.borderBottom='solid 3px black'
+
+// var input = document.querySelector('input')
+// input.value="Hello world"
+
+// var submit = document.querySelector('input[type="submit"]')
+// submit.value="SEND" 
+
+// var item = document.querySelector('.list-group-item')
+// item.style.color='blue'
+
+// var litem = document.querySelector('.list-group-item:last-child')
+// litem.style.color='green'
+// var twoitem = document.querySelector('.list-group-item:nth-child(2)')
+// twoitem.style.color='green'
+
+// queruy selector al;l
+
+var title=document.querySelectorAll('.title')
+console.log(title)
+title[0].textContent="HHH"
+
+var odd= document.querySelectorAll("li:nth-child(odd)")
+var even= document.querySelectorAll("li:nth-child(even)")
+for(var i=0;i<odd.length;i++){
+    odd[i].style.background="grey"
+    even[i].style.background="green"
+}
