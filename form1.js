@@ -9,19 +9,30 @@ function addItem(e){
   show(obj)
 }
 function show(obj){
-    const pnode = document.getElementById('ulist')
-    const childli  = document.createElement('li')
-   childli.textContent=obj.name + ' - ' + obj.email
-   const dltbtn= document.createElement('input')
-   dltbtn.value="Delete"
-   dltbtn.type='button'
-   dltbtn.style.backgroundColor="green"
-   dltbtn.onclick=()=>{
-    localStorage.removeItem(obj.email)
-    pnode.removeChild(childli)
-   }
-   childli.appendChild(dltbtn)
-   pnode.appendChild(childli)
+  const pnode = document.getElementById('ulist')
+  const childli  = document.createElement('li')
+ childli.textContent=obj.name + ' - ' + obj.email
+ const dltbtn= document.createElement('input')
+ dltbtn.value="Delete"
+ dltbtn.type='button'
+ dltbtn.style.backgroundColor="green"
+ dltbtn.onclick=()=>{
+  localStorage.removeItem(obj.email)
+  pnode.removeChild(childli)
+ }
+ const editbtn= document.createElement('input')
+ editbtn.value="Edit"
+ editbtn.type='button'
+ editbtn.style.backgroundColor="yellow"
+ editbtn.onclick=()=>{
+   document.getElementById('nameid').value=obj.name
+   document.getElementById('emailid').value=obj.email
+   localStorage.removeItem(obj.email)
+   pnode.removeChild(childli)
+  }
+  childli.appendChild(editbtn)
+  childli.appendChild(dltbtn)
+  pnode.appendChild(childli)
 }
 // function show(user){
 //   // console.log(localStorage.getItem(user.email),"e+m")
