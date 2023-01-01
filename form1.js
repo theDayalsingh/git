@@ -3,14 +3,31 @@ form.addEventListener('submit', addItem);
 function addItem(e){
   e.preventDefault();
   const name = e.target.name.value
-  var email = e.target.email.value
-  var obj= {name,email}
-  var st = JSON.stringify(obj)
-  localStorage.setItem(email,st)
+  const email = e.target.email.value
+  const obj= {name,email}
+  localStorage.setItem(obj.email, JSON.stringify(obj))
   show(obj)
 }
 function show(user){
-    const pnode = document.getElementById("ulist")
-    const childli  = `<li>${user.name} - ${user.email}</li>`
+  // console.log(localStorage.getItem(user.email),"e+m")
+    if(localStorage.getItem(user.email)!==null){
+      notshow(user.email)
+    }
+    const pnode = document.getElementById('ulist')
+    const childli  = `<li id=${user.email}>${user.name} - ${user.email} <button onclick=delet('${user.email}')> Delete User </button></li>`
     pnode.innerHTML= pnode.innerHTML + childli
 }
+function notshow(emailId){
+  const pnode = document.getElementById("ulist")
+  const childNodeToBeDeleted = document.getElementById(emailId);
+  // console.log(childNodeToBeDeleted , "childmode")
+  if(childNodeToBeDeleted){
+pnode.removeChild(childNodeToBeDeleted)
+  }
+}
+function delet(emailId){
+console.log(emailId)
+localStorage.removeItem(emailId)
+notshow(emailId)
+}
+
