@@ -41,8 +41,9 @@ function show(obj){
    editbtn.onclick=()=>{
      document.getElementById('nameid').value=obj.name
      document.getElementById('emailid').value=obj.email
-     localStorage.removeItem(obj.email)
-     pnode.removeChild(childli)
+     axios.delete(`https://crudcrud.com/api/fed0c19038434d2ba1a2dab436886de3/userData/${obj._id}`)
+     .then((response) =>  pnode.removeChild(childli))
+     .catch((error) =>{console.error(error)});
     }
     childli.appendChild(editbtn)
     childli.appendChild(dltbtn)
