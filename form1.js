@@ -12,6 +12,15 @@ function addItem(e){
       document.body.innerHTML= document.body.innerHTML + "<h4>Something wrong</h4>"
       console.error(err)});
 }
+window.addEventListener("DOMContentLoaded",()=>{
+  axios.get('https://crudcrud.com/api/fed0c19038434d2ba1a2dab436886de3/userData')
+  .then((response) => {
+    for(var i=0;i<response.data.length;i++){
+      show(response.data[i])
+    }
+  })
+  .catch((error) =>{console.error(error)});
+})
 function show(obj){
     const pnode = document.getElementById('ulist')
     const childli  = document.createElement('li')
