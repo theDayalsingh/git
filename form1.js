@@ -30,8 +30,9 @@ function show(obj){
    dltbtn.type='button'
    dltbtn.style.backgroundColor="green"
    dltbtn.onclick=()=>{
-    localStorage.removeItem(obj.email)
-    pnode.removeChild(childli)
+    axios.delete(`https://crudcrud.com/api/fed0c19038434d2ba1a2dab436886de3/userData/${obj._id}`)
+    .then((response) =>  pnode.removeChild(childli))
+    .catch((error) =>{console.error(error)});
    }
    const editbtn= document.createElement('input')
    editbtn.value="Edit"
