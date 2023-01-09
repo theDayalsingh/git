@@ -5,44 +5,39 @@ function addItem(e){
   const name = e.target.name.value
   const email = e.target.email.value
   const obj= {name,email}
-  localStorage.setItem(obj.email, JSON.stringify(obj))
-  show(obj)
+  axios
+    .post('https://crudcrud.com/api/fed0c19038434d2ba1a2dab436886de3/userData',obj)
+    .then(res => show(res.data))
+    .catch(err =>{ 
+      document.body.innerHTML= document.body.innerHTML + "<h4>Something wrong</h4>"
+      console.error(err)});
 }
 function show(obj){
-  const pnode = document.getElementById('ulist')
-  const childli  = document.createElement('li')
- childli.textContent=obj.name + ' - ' + obj.email
- const dltbtn= document.createElement('input')
- dltbtn.value="Delete"
- dltbtn.type='button'
- dltbtn.style.backgroundColor="green"
- dltbtn.onclick=()=>{
-  localStorage.removeItem(obj.email)
-  pnode.removeChild(childli)
- }
- const editbtn= document.createElement('input')
- editbtn.value="Edit"
- editbtn.type='button'
- editbtn.style.backgroundColor="yellow"
- editbtn.onclick=()=>{
-   document.getElementById('nameid').value=obj.name
-   document.getElementById('emailid').value=obj.email
-   localStorage.removeItem(obj.email)
-   pnode.removeChild(childli)
-  }
-  childli.appendChild(editbtn)
-  childli.appendChild(dltbtn)
-  pnode.appendChild(childli)
+    const pnode = document.getElementById('ulist')
+    const childli  = document.createElement('li')
+   childli.textContent=obj.name + ' - ' + obj.email
+   const dltbtn= document.createElement('input')
+   dltbtn.value="Delete"
+   dltbtn.type='button'
+   dltbtn.style.backgroundColor="green"
+   dltbtn.onclick=()=>{
+    localStorage.removeItem(obj.email)
+    pnode.removeChild(childli)
+   }
+   const editbtn= document.createElement('input')
+   editbtn.value="Edit"
+   editbtn.type='button'
+   editbtn.style.backgroundColor="yellow"
+   editbtn.onclick=()=>{
+     document.getElementById('nameid').value=obj.name
+     document.getElementById('emailid').value=obj.email
+     localStorage.removeItem(obj.email)
+     pnode.removeChild(childli)
+    }
+    childli.appendChild(editbtn)
+    childli.appendChild(dltbtn)
+    pnode.appendChild(childli)
 }
-// function show(user){
-//   // console.log(localStorage.getItem(user.email),"e+m")
-//     if(localStorage.getItem(user.email)!==null){
-//       notshow(user.email)
-//     }
-//     const pnode = document.getElementById('ulist')
-//     const childli  = `<li id=${user.email}>${user.name} - ${user.email} <button onclick=delet('${user.email}')> Delete User </button></li>`
-//     pnode.innerHTML= pnode.innerHTML + childli
-// }
 // function notshow(emailId){
 //   const pnode = document.getElementById("ulist")
 //   const childNodeToBeDeleted = document.getElementById(emailId);
@@ -56,5 +51,4 @@ function show(obj){
 // localStorage.removeItem(emailId)
 // notshow(emailId)
 // }
-
 
