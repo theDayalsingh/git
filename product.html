@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <title>Expense Tracker</title>
+</head>
+<body>
+  <div class="container">
+  <form id="addForm">
+    <h2 class="text-center">Product</h2>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Selling Price:</label>
+        <input type="number" class="form-control" name="amount" id="expenseAmountId">
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Product Name:</label>
+        <input type="text" class="form-control" name="description" id="descriptionId" >
+    </div>
+    <div class="form-group">
+      <label >Choose a Category:</label>
+      <select class="form-control" id="categoryId" name="category">
+          <option value="table1">Electronics Items</option>
+          <option value="table2">Food Items</option>
+          <option value="table3">Skincare Items</option>
+      </select>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Add Product">
+  </form>
+  <h2>Products</h2>
+  <ul id="ulist"><h3>Electronics Items</h3></ul>
+  <ul id="ulist2"><h3>Food Items</h3></ul>
+  <ul id="ulist3"><h3>Skincare Items</h3></ul>
+  </div>
+  <script src="/gittask/product.js"></script>
+</body>
+</html>
